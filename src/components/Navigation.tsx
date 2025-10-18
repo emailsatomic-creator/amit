@@ -21,6 +21,14 @@ export const Navigation = () => {
       window.location.href = "/transformations";
       return;
     }
+
+    const currentPath = window.location.pathname;
+
+    if (currentPath !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
