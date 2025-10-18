@@ -103,23 +103,17 @@ export const MacroCalculator = () => {
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const macroResults = computeMacroResults();
-      
-      // Send data to Google Sheets
-      await fetch("https://script.google.com/macros/s/AKfycbwthfEgncufB7vS4lkBn27fNgYaG3Vb_K_go0z6HFx8GWW9G3Qbg8fgwsIQX8SCeXSJ/exec", {
+
+      // Send only name and email to Google Apps Script
+      await fetch("https://script.google.com/macros/s/AKfycby19uhDJsWjvcpiYvv85sThLW3CzX0rHsGgzMed16uQpQVLMAkIBTgVCNFeO3grDJhZVQ/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: name,
-          email: email,
-          age: age,
-          height: height,
-          weight: weight,
-          gender: gender,
-          activityLevel: activityLevel,
-          goal: goal
+          email: email
         })
       });
 
